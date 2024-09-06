@@ -1,0 +1,95 @@
+/* Sensory-friendly color palette */
+:root {
+    --primary-color: #7FB3D5; /* Soft blue */
+    --secondary-color: #AED6F1; /* Light blue */
+    --accent-color: #E59866; /* Warm peach */
+    --background-color: #F4F6F7; /* Off-white */
+    --text-color: #2C3E50; /* Dark navy */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--primary-color);
+    padding: 20px;
+    text-align: center;
+}
+
+header .logo h1 {
+    margin: 0;
+    color: white;
+    font-size: 24px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.hero {
+    background-color: var(--secondary-color);
+    padding: 50px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    background-color: var(--background-color);
+}
+
+.features .feature {
+    width: 20%;
+    text-align: center;
+}
+
+.features .feature h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
