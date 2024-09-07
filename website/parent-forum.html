@@ -2,38 +2,256 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parent Forum</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #1ee24f;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+
+        .group-sessions, .experiences, .journals, .faqs {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .session-item, .experience-item, .journal-item, .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .session-item:last-child, .experience-item:last-child, .journal-item:last-child, .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .post-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post-form textarea {
+            resize: vertical;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .post-form button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .post-form button:hover {
+            background-color: #45a049;
+        }
+
+        .faq-item button {
+            background: none;
+            border: none;
+            color: #4CAF50;
+            cursor: pointer;
+            padding: 10px;
+            text-align: left;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .faq-item .answer {
+            display: none;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="community.html">Community</a></li>
-                <li><a href="aac-tools.html">AAC Tools</a></li>
-                <li><a href="learning-hub.html">Learning Hub</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section class="parent-forum">
-            <h2>Parent Forum</h2>
-            <div class="forum-post">
-                <h3>Post Title</h3>
-                <p>Discussion content goes here...</p>
-                <button>Reply</button>
+<header>
+    <div class="logo">
+        <h1>SpecBridge</h1>
+    </div>
+    <br>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>                
+            <li><a href="therapy.html">Therapy</a></li>
+            <li><a href="aac-tools.html">AAC Tools</a></li>
+            <li><a href="learning-hub.html">Learning Hub</a></li>
+            <li><a href="parent-forum.html">Parent Forum</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <!-- Group Sessions Section -->
+    <div class="section group-sessions">
+        <h2>Group Sessions</h2>
+        <div class="session-item">
+            <h3>Weekly Support Group</h3>
+            <p>Join our weekly support group for parents to share and learn from each other's experiences.</p>
+            <button>Join Session</button>
+        </div>
+        <div class="session-item">
+            <h3>Online Q&A with Experts</h3>
+            <p>Attend live Q&A sessions with experts in autism to get your questions answered.</p>
+            <button>Join Session</button>
+        </div>
+    </div>
+
+    <!-- Personal Experiences Section -->
+    <div class="section experiences">
+        <h2>Share Your Experiences</h2>
+        <form class="post-form" onsubmit="addExperience(event)">
+            <textarea id="experienceInput" rows="4" placeholder="Share your personal experiences..."></textarea>
+            <button type="submit">Post</button>
+        </form>
+        <div id="experienceList">
+            <!-- User experiences will be displayed here -->
+        </div>
+    </div>
+
+    <!-- Helpful Journals Section -->
+    <div class="section journals">
+        <h2>Helpful Journals</h2>
+        <div class="journal-item">
+            <h3>Understanding Autism</h3>
+            <p>Read our latest journal on understanding autism and how to support your child.</p>
+            <button>Read More</button>
+        </div>
+        <div class="journal-item">
+            <h3>Parenting Tips</h3>
+            <p>Explore tips and advice from experienced parents and professionals.</p>
+            <button>Read More</button>
+        </div>
+    </div>
+
+    <!-- FAQs Section -->
+    <div class="section faqs">
+        <h2>Frequently Asked Questions (FAQs)</h2>
+        <div class="faq-item">
+            <button onclick="toggleAnswer(this)">What are the signs of autism?</button>
+            <div class="answer">
+                <p>Signs of autism include challenges with social skills, repetitive behaviors, speech and nonverbal communication.
+                   <br> <br>Autism in young children 
+                    <br>
+<b>Signs of autism in young children include:</b>
+
+not responding to their name
+avoiding eye contact
+not smiling when you smile at them
+getting very upset if they do not like a certain taste, smell or sound
+repetitive movements, such as flapping their hands, flicking their fingers or rocking their body
+not talking as much as other children
+not doing as much pretend play
+repeating the same phrases
+<br><br>
+<b> Autism in older children</b> <br>
+Signs of autism in older children include:
+
+not seeming to understand what others are thinking or feeling
+unusual speech, such as repeating phrases and talking ‘at’ others
+liking a strict daily routine and getting very upset if it changes
+having a very keen interest in certain subjects or activities
+getting very upset if you ask them to do something
+finding it hard to make friends or preferring to be on their own
+taking things very literally – for example, they may not understand phrases like "break a leg"
+finding it hard to say how they feel
+<br><br><b>
+Autism in girls and boys </b><br>
+Autism can sometimes be different in girls and boys. <br>
+<br>
+</b>Autistic girls may:</b> <br>
+
+hide some signs of autism by copying how other children behave and play
+withdraw in situations they find difficult
+appear to cope better with social situations
+show fewer signs of repetitive behaviours
+This means autism can be harder to spot in girls.
+<br>
+You can find more at <br>
+<a href="https://www.nhs.uk/conditions/autism/signs/children/">www.nhs.uk</a>
+                </p>
             </div>
-            <!-- Repeat for each post -->
-        </section>
-    </main>
+        </div>
+        <div class="faq-item">
+            <button onclick="toggleAnswer(this)">How can I support my child at home?</button>
+            <div class="answer">
+                <p>Creating a structured and predictable environment, using visual supports, and maintaining open communication can help.
+                    <br><br>
+                    Parents can provide aspects of six well-established, 
+                    risk-free therapies on their own without investing a lot of time or money. These therapies include:
+                    <ol>
+                    <li>Play therapy</li>
+                    <li>Speech therapy</li>
+                    <li>Applied Behavior Analysis (ABA)</li>
+                    <li>Floortime</li>
+                    <li>Relationship Development Intervention (RDI)</li>
+                    <li>Parent-Child Interaction Therapy (PCIT) for aggressive behaviors</li>
+                    </ol>
+                    <br>
+                    With SpecBridge, parents can help their children thrive at home using our specialized therapy tools, 
+                    which are designed to support communication, learning, and sensory needs. 
+                    Alongside tailored educational resources and community forums, these tools provide practical, 
+                    effective ways to enhance your child’s daily experiences and development.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <footer>
-        <p>&copy; 2024 Autism Support. All rights reserved.</p>
-    </footer>
+<script>
+    function addExperience(event) {
+        event.preventDefault();
+        const input = document.getElementById('experienceInput');
+        const experienceList = document.getElementById('experienceList');
+        const newExperience = document.createElement('div');
+        newExperience.className = 'experience-item';
+        newExperience.innerHTML = `<p>${input.value}</p>`;
+        experienceList.appendChild(newExperience);
+        input.value = '';
+    }
+
+    function toggleAnswer(button) {
+        const answer = button.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+
 </body>
 </html>
